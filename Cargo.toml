@@ -2,6 +2,14 @@
 name = "LGremote"
 version = "0.1.0"
 edition = "2021"
+authors = ["Ali Raheem <crates.io@shoryuken.me>"]
+license = "MIT"
+description = "Command line tool for controlling LG TVs from the 2012 era"
+readme = "README.md"
+homepage = "https://github.com/ali-raheem/LGRemote.rs"
+repository = "https://github.com/ali-raheem/LGRemote.rs"
+keywords = ["cli", "remote", "control", "TV", "LG", "automation"]
+categories = ["command-line-utilities"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
