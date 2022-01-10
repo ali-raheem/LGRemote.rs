@@ -5,14 +5,15 @@ LG TVs of the 2012 era (before WebOS) allowed control via the network, this comm
 If this project doesn't meet your needs check the Resources/References section for several others.
 
 # Usage
-TVs can be identified through [SSDP] which is not yet supported. This is required to find the IP addresses of a TV.
+TVs can be identified through [SSDP](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol) which is not yet supported. This is required to find the IP addresses of a TV.
 1. `LGRemote IPaddress` will cause the TV to display the pairing key.
 2. `LGRemote IPaddress Key Command` will issue the command to the TV.
+3. You can alias the command e.g. `alias TVcontrol = 'LGRemote 192.168.1.100 123456'` and use it like so `TVcontrol VOLUME_UP`
 
 # Compatible Commands
 | Command | Key | Notes |
 | --------|-----|------ |
-| POWER | 1 |  |
+| POWER | 1 | Can power the TV off but not on. Consider trying Wake on lan (not all TVs support this). |
 | NUM_0 | 2 |  |
 | NUM_1 | 3 |  |
 | NUM_2 | 4 |  |
@@ -59,8 +60,8 @@ TVs can be identified through [SSDP] which is not yet supported. This is require
 | PROGRAM_LIST | 50 |  |
 | TEXT | 51 |  |
 | MARK | 52 |  |
-| _3D | 400 |  |
-| _3D_LR | 401 |  |
+| 3D | 400 |  |
+| 3D_LR | 401 |  |
 | DASH | 402 |  |
 | PREV | 403 |  |
 | FAV | 404 |  |
@@ -72,7 +73,7 @@ TVs can be identified through [SSDP] which is not yet supported. This is require
 | AV | 410 |  |
 | SIMPLINK | 411 |  |
 | EXIT | 412 |  |
-| RESERVE | 413 |  |
+| RESERVED | 413 | Does nothing? |
 | PIP_CHANNEL_UP | 414 |  |
 | PIP_CHANNEL_DOWN | 415 |  |
 | PIP_SWITCH | 416 |  |
