@@ -82,7 +82,7 @@ TVs can be identified through [SSDP](https://en.wikipedia.org/wiki/Simple_Servic
 # Resources/References
 Unfortunately official documentation doesn't seem to be available any longer but several libraries and scripts are available. node-lgtv-api[4]  is by far the most complete and useful project.
 1. https://github.com/ubaransel/lgcommander
-2.  https://github.com/grieve/python-lgtv
+2. https://github.com/grieve/python-lgtv - this is where the command codes are from largely.
 3. http://dorchain.net/~joerg/code/lg.py
 4. https://github.com/timmson/node-lgtv-api - most useful
 5. https://developer.lgappstv.com/TV_HELP/index.jsp?topic=%2Flge.tvsdk.references.book%2Fhtml%2FUDAP%2FUDAP%2FAnnex - defunct
