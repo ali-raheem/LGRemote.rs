@@ -6,6 +6,8 @@ If this project doesn't meet your needs check the Resources/References section f
 
 # Installation
 
+This project uses `cargo` for build managment and is written entirely in `rust`. Binaries are not yet available.
+
 Either clone this repo and run `cargo install --path .` or install via https://crates.io with `cargo install LGremote`.
 
 # Usage
