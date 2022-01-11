@@ -96,12 +96,18 @@ Subsequent requests will try and pair and runany command requested.", args[0]);
     }
 
     let key: u32 = args[2].parse().expect("Check Key it should be a number.");
-    let command = COMMAND_CODES[&args[3] as &str];
+    let command = match COMMAND_CODES.get(&args[3] as &str) {
+	Some(c) => c.clone(),
+	None => {
+	    println!("Command not found.");
+	    exit(1)
+	}
+    };
         
     let res = pair_with_key(&ip, client.clone(), key);
     if 200 != res.await.status() {
        println!("Auth failed check IP/Key..");
-       exit(2);
+       exit(1);
     }
 
     let res = send_command(&ip, client.clone(), command);
