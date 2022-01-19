@@ -1,6 +1,6 @@
 [package]
 name = "LGremote"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["Ali Raheem <crates.io@shoryuken.me>"]
 license = "MIT"
@@ -16,3 +16,4 @@ categories = ["command-line-utilities"]
 [dependencies]
 reqwest = "0.11.8"
 tokio = { version = "1", features = ["full"] }
+phf = { version = "0.10", features = ["macros"] }

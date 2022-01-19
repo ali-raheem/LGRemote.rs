@@ -4,6 +4,12 @@ LG TVs of the 2012 era (before WebOS) allowed control via the network, this comm
 
 If this project doesn't meet your needs check the Resources/References section for several others.
 
+# Installation
+
+This project uses `cargo` for build managment and is written entirely in `rust`. Binaries are not yet available.
+
+Either clone this repo and run `cargo install --path .` or install via https://crates.io with `cargo install LGremote`.
+
 # Usage
 TVs can be identified through [SSDP](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol) which is not yet supported. This is required to find the IP addresses of a TV.
 1. `LGRemote IPaddress` will cause the TV to display the pairing key.
