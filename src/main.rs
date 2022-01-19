@@ -1,16 +1,19 @@
 use std::env;
 use std::process::exit;
-use LGremote::{LGTV, COMMAND_CODES};
+use LGremote::{COMMAND_CODES, LGTV};
 
 #[tokio::main]
 async fn main() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() < 2 {
-	println!("Usage:\n\t{} IP [KEY] [COMMAND]\n\nThe IP address must be provided.
+        println!(
+            "Usage:\n\t{} IP [KEY] [COMMAND]\n\nThe IP address must be provided.
 If only an IP is provided the TV will be asked to display it's pairing code.
-Subsequent requests will try and pair and runany command requested.", args[0]);
-	   exit(1);
+Subsequent requests will try and pair and runany command requested.",
+            args[0]
+        );
+        exit(1);
     }
     let ip = args[1].clone();
 
@@ -30,8 +33,8 @@ Subsequent requests will try and pair and runany command requested.", args[0]);
     let key: u32 = args[2].parse().expect("Check Key it should be a number.");
     let res = tv.pair_with_key(key);
     if 200 != res.await.status() {
-       println!("Auth failed check IP/Key..");
-       exit(1);
+        println!("Auth failed check IP/Key..");
+        exit(1);
     } else {
         println!("Paired with TV. You can now start issuing commands.");
     }
@@ -44,7 +47,7 @@ Subsequent requests will try and pair and runany command requested.", args[0]);
                 exit(1)
             }
         };
-    
+
         let res = tv.send_command(command);
         println!("Sending command {}", command);
         if 200 == res.await.status() {
@@ -55,6 +58,4 @@ Subsequent requests will try and pair and runany command requested.", args[0]);
             exit(1);
         }
     }
-
 }
-
