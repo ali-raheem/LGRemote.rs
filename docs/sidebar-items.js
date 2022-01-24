@@ -1,0 +1,1 @@
+initSidebarItems({"static":[["COMMAND_CODES","Map of common names for commands and the corresponding code."]],"struct":[["LGTV","Represents LG TV supporting 2012 era network controls"]]});
