@@ -19,7 +19,7 @@ impl LGTV {
             key: 0,
         }
     }
-    pub async fn pair_with_key(&mut self, key: u32) -> Response {
+    pub async fn pair_with_key(&mut self, key: u32) -> Result<Response, reqwest::Error> {
         let auth_request = format!(
             "
             <?xml version=\"1.0\" encoding=\"utf-8\"?>
@@ -39,9 +39,8 @@ impl LGTV {
             .body(auth_request)
             .send()
             .await
-            .expect("Failed to pair. Check IP.")
     }
-    pub async fn display_pair_key(&mut self) -> Response {
+    pub async fn display_pair_key(&mut self) -> Result<Response, reqwest::Error> {
         let display_pair_key = "
             <?xml version=\"1.0\" encoding=\"utf-8\"?>
             <auth>
@@ -54,10 +53,9 @@ impl LGTV {
             .body(display_pair_key)
             .send()
             .await
-            .expect("Failed to display key check IP.")
     }
 
-    pub async fn send_command(&mut self, cmd_code: u32) -> Response {
+    pub async fn send_command(&mut self, cmd_code: u32) -> Result<Response, reqwest::Error> {
         let send_command = format!(
             "
             <?xml version=\"1.0\" encoding=\"utf-8\"?>
@@ -77,7 +75,6 @@ impl LGTV {
             .body(send_command)
             .send()
             .await
-            .expect("Failed to send command, check IP, Key and Command availability.")
     }
 }
 
