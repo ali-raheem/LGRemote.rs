@@ -1,3 +1,7 @@
+	# 0.2.1
+
+	Better error messages, return request status code. Don't just panic.
+	
 	# 0.2.0
 
 	Better error handling, move panics out of library.

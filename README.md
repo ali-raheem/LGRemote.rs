@@ -6,15 +6,15 @@ If this project doesn't meet your needs check the Resources/References section f
 
 # Installation
 
-This project uses `cargo` for build managment and is written entirely in `rust`. Binaries are not yet available.
+This project uses `cargo` for build managment and is written entirely in `rust`. Binaries are on [GitHub](https://github.com/ali-raheem/LGRemote.rs/releases).
 
-Either clone this repo and run `cargo install --path .` or install via https://crates.io with `cargo install LGremote`.
+To compile either clone this repo and run `cargo install --path .` or install via [crates.io](https://crates.io/crates/LGremote) with `cargo install LGremote`.
 
 # Usage
 TVs can be identified through [SSDP](https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol) which is not yet supported. This is required to find the IP addresses of a TV.
 1. `LGRemote IPaddress` will cause the TV to display the pairing key.
 2. `LGRemote IPaddress Key Command` will issue the command to the TV.
-3. You can alias the command e.g. `alias TV_control="LGRemote 192.168.1.100 123456"` and use it like so `TV_control VOLUME_UP`.
+3. You can alias the command e.g. `alias tvcontrol="LGRemote 192.168.1.100 123456"` and use it like so `TV_control VOLUME_UP`.
 
 # Compatible Commands
 | Command | Key | Notes |
