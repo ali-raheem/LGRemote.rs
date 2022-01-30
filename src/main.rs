@@ -15,9 +15,8 @@ Subsequent requests will try and pair and runany command requested.",
         );
         exit(1);
     }
-    let ip = args[1].clone();
 
-    let mut tv = LGTV::new(ip);
+    let mut tv = LGTV::new(&args[1]);
 
     if args.len() == 2 {
         let res = tv.display_pair_key().await.unwrap();
@@ -25,18 +24,24 @@ Subsequent requests will try and pair and runany command requested.",
             println!("Requested authkey to be displayed.");
             exit(0);
         } else {
-            println!("Failed to request auth key. Check IP.");
+            println!("Failed to request auth key. Check IP. Status: {}", res.status());
             exit(1);
         }
     }
 
-    let key: u32 = args[2].parse().expect("Check Key it should be a number.");
+    let key: u32 = match args[2].parse() {
+        Ok(k) => k,
+        Err(e) => {
+            println!("Key should be made up for digits. Failed with error: {}", e);
+            exit(1);
+        }
+    };
     let res = tv.pair_with_key(key).await.unwrap();
     if 200 != res.status() {
-        println!("Auth failed check IP/Key..");
+        println!("Auth failed check IP/Key. Status {}.", res.status());
         exit(1);
     } else {
-        println!("Paired with TV. You can now start issuing commands.");
+        println!("Paired with TV.");
     }
 
     if args.len() == 4 {
@@ -54,7 +59,7 @@ Subsequent requests will try and pair and runany command requested.",
             println!("Command recieved.");
             exit(0);
         } else {
-            println!("TV did not get command.");
+            println!("TV did not get command. Status: {}", res.status());
             exit(1);
         }
     }
