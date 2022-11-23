@@ -4,6 +4,8 @@ LG TVs of the 2012 era (before WebOS) allowed control via the network, this comm
 
 If this project doesn't meet your needs check the Resources/References section for several others.
 
+Another version [here](https://github.com/ali-raheem/LGremote.nim).
+
 # Installation
 
 This project uses `cargo` for build managment and is written entirely in `rust`. Binaries are on [GitHub](https://github.com/ali-raheem/LGRemote.rs/releases).
